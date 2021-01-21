@@ -14,8 +14,12 @@ export const NavSidebar = () => {
     <React.Fragment>
       {/* Sidebar Overlay */}
       <div
-        onClick={() => setIsSidebarOpen(false)}
-        className={`fixed inset-0 z-20 block transition-opacity bg-black opacity-50 lg:hidden ${
+        id="aaaaaaaa"
+        onClick={() => {
+          console.log('hey')
+          setIsSidebarOpen(false)
+        }}
+        className={`fixed inset-0 z-20 opacity-50 bg-black ${
           isSidebarOpen ? 'block' : 'hidden'
         }`}
       />
@@ -28,6 +32,7 @@ export const NavSidebar = () => {
 
       <div>
         <button
+          id="bbbbbbbbb"
           className="btn-menu"
           onClick={(): void => setIsSidebarOpen(true)}
           type="button"
@@ -67,10 +72,6 @@ export const NavSidebar = () => {
                 {
                   title: 'Blogs',
                   itemId: '/posts/first-post',
-                },
-                {
-                  title: 'Members',
-                  itemId: '/about/members',
                 },
               ],
             },
