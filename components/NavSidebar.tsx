@@ -1,52 +1,54 @@
 /* eslint-disable react/display-name, jsx-a11y/click-events-have-key-events */
 import { Navigation } from 'react-minimal-side-navigation'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt, faBars } from '@fortawesome/free-solid-svg-icons'
 
 import React, { useState } from 'react'
 
 import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 
-export const NavSidebar = () => {
+export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const router = useRouter()
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   console.log('isSidebarOpen', isSidebarOpen)
 
   return (
-    <React.Fragment>
-      {/* Sidebar Overlay */}
-      <div
-        onClick={() => {
-          console.log('hey')
-          setIsSidebarOpen(false)
-        }}
-        className={`fixed inset-0 z-20 opacity-50 bg-black ${
-          isSidebarOpen ? 'block' : 'hidden'
-        }`}
-      />
-
+    <>
       {/* Sidebar */}
       <div
-        className={`origin-left relative inset-y-0 left-0 z-30 bg-white ease-in-out transform transition-all duration-300 ${
-          isSidebarOpen ? 'scale-x-100 w-64' : 'scale-x-0 w-0'
+        className="absolute z-50 inset-2 w-8 h-8 cursor-pointer"
+        onClick={() => {
+          console.log('hey')
+          setIsSidebarOpen((currentSidebarOpenFlag) => !currentSidebarOpenFlag)
+        }}
+      >
+        <FontAwesomeIcon icon={faBars} />
+      </div>
+
+      <div
+        className={`relative inset-y-0 left-0 z-30 bg-white ${
+          isSidebarOpen ? 'w-64 block' : 'w-0 hidden'
         }`}
       >
-        <div className="flex items-center justify-center mt-10 text-center py-6">
-          <FontAwesomeIcon icon={faTrashAlt} />
+        <div className="flex items-center justify-center mt-10 text-center py-3">
+          <img
+            className="block mx-auto h-24 rounded-full sm:mx-0 sm:flex-shrink-0"
+            src="/images/kaeru.png"
+            alt="Kaeru Face"
+          />
         </div>
-        <div className="flex items-center justify-center mt-10 text-center py-6">
-          <span className="mx-2 text-2xl font-semibold text-black">
-            react-minimal-side-navigation
-          </span>
+        <div className="flex items-center justify-center text-center pb-6">
+          <div>Kaeru Portfolio</div>
         </div>
 
         <Navigation
           activeItemId={router.asPath}
           onSelect={({ itemId }) => {
-            router.push(itemId, undefined, { shallow: true })
+            console.log('selected')
+            router.push(itemId)
           }}
           items={[
             {
@@ -89,11 +91,11 @@ export const NavSidebar = () => {
               },
             ]}
             onSelect={({ itemId }) => {
-              router.push(itemId, undefined, { shallow: true })
+              router.push(itemId)
             }}
           />
         </div>
       </div>
-    </React.Fragment>
+    </>
   )
 }

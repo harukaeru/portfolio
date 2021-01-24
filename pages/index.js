@@ -15,8 +15,9 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  console.log('Home')
   return (
-    <Layout home>
+    <>
       <Head>
         <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -35,6 +36,6 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
-    </Layout>
+    </>
   )
 }

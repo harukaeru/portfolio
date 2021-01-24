@@ -4,7 +4,7 @@ import Layout from '../../components/Layout'
 
 export default function FirstPost() {
   return (
-    <Layout>
+    <>
       <div>here</div>
       <Head>
         <title>First post</title>
@@ -16,6 +16,6 @@ export default function FirstPost() {
           <a>Back to home</a>
         </Link>
       </h2>
-    </Layout>
+    </>
   )
 }
