@@ -25,6 +25,7 @@ export default function Home({ allPostsData }) {
       <section>
         <h2>Blog</h2>
         <ul>
+          Haro! Nice too meeto you 🙇
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
               {title}
