@@ -4,7 +4,14 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faTrashAlt, faBars } from '@fortawesome/free-solid-svg-icons'
+import {
+  faBars,
+  faHome,
+  faAddressCard,
+  faChess,
+  faGlobe,
+  faLink,
+} from '@fortawesome/free-solid-svg-icons'
 
 import React, { useState } from 'react'
 
@@ -54,28 +61,22 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             {
               title: 'Home',
               itemId: '/',
-              elemBefore: () => <FontAwesomeIcon icon={faTrashAlt} />,
+              elemBefore: () => <FontAwesomeIcon icon={faHome} />,
             },
             {
               title: 'About',
-              itemId: '/about',
-              elemBefore: () => <FontAwesomeIcon icon={faTrashAlt} />,
-              subNav: [
-                {
-                  title: 'Blogs',
-                  itemId: '/posts/first-post',
-                },
-              ],
+              itemId: '/posts/first-post',
+              elemBefore: () => <FontAwesomeIcon icon={faAddressCard} />,
             },
             {
-              title: 'Another Tab',
-              itemId: '/another',
-              subNav: [
-                {
-                  title: 'Teams',
-                  itemId: '/another/teams',
-                },
-              ],
+              title: 'Gallery',
+              itemId: '/posts/first-post2',
+              elemBefore: () => <FontAwesomeIcon icon={faChess} />,
+            },
+            {
+              title: 'Links',
+              itemId: '/posts/first-post3',
+              elemBefore: () => <FontAwesomeIcon icon={faLink} />,
             },
           ]}
         />
@@ -85,9 +86,9 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             activeItemId={router.asPath}
             items={[
               {
-                title: 'Settings',
-                itemId: '/settings',
-                elemBefore: () => <FontAwesomeIcon icon={faTrashAlt} />,
+                title: 'Language',
+                itemId: '/language',
+                elemBefore: () => <FontAwesomeIcon icon={faGlobe} />,
               },
             ]}
             onSelect={({ itemId }) => {
