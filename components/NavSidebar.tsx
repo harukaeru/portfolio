@@ -33,14 +33,14 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           isSidebarOpen ? 'w-64 block' : 'w-0 hidden'
         }`}
       >
-        <div className="flex items-center justify-center mt-10 text-center py-3">
+        <div className="flex items-center justify-center mt-10 text-center py-3 select-none">
           <img
             className="block mx-auto h-24 rounded-full sm:mx-0 sm:flex-shrink-0"
             src="/images/kaeru.png"
             alt="Kaeru Face"
           />
         </div>
-        <div className="flex items-center justify-center text-center pb-6">
+        <div className="flex items-center justify-center text-center pb-6 select-none">
           <div>Kaeru Portfolio</div>
         </div>
 
