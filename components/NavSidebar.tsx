@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name, jsx-a11y/click-events-have-key-events */
 import { Navigation } from 'react-minimal-side-navigation'
 import { useRouter } from 'next/router'
+import { useTranslation, i18n } from '../i18n'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -21,6 +22,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const router = useRouter()
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   console.log('isSidebarOpen', isSidebarOpen)
+  const [t] = useTranslation()
 
   return (
     <>
@@ -37,7 +39,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
       <div
         className={`relative inset-y-0 left-0 z-30 bg-white ${
-          isSidebarOpen ? 'w-64 block' : 'w-0 hidden'
+          isSidebarOpen ? 'w-80 block' : 'w-0 hidden'
         }`}
       >
         <div className="flex items-center justify-center mt-10 text-center py-3 select-none">
@@ -59,22 +61,22 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           }}
           items={[
             {
-              title: 'Home',
+              title: t('Home'),
               itemId: '/',
               elemBefore: () => <FontAwesomeIcon icon={faHome} />,
             },
             {
-              title: 'About',
+              title: t('About'),
               itemId: '/posts/first-post',
               elemBefore: () => <FontAwesomeIcon icon={faAddressCard} />,
             },
             {
-              title: 'Gallery',
+              title: t('Gallery'),
               itemId: '/posts/first-post2',
               elemBefore: () => <FontAwesomeIcon icon={faChess} />,
             },
             {
-              title: 'Links',
+              title: t('Links'),
               itemId: '/posts/first-post3',
               elemBefore: () => <FontAwesomeIcon icon={faLink} />,
             },
@@ -86,13 +88,16 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             activeItemId={router.asPath}
             items={[
               {
-                title: 'Language',
+                title: t('Change Language'),
                 itemId: '/language',
                 elemBefore: () => <FontAwesomeIcon icon={faGlobe} />,
               },
             ]}
             onSelect={({ itemId }) => {
-              router.push(itemId)
+              console.log('i18n.language', i18n.language)
+              const targetLanguage = i18n.language === 'en' ? 'ja' : 'en'
+              console.log('targetLanguage', targetLanguage)
+              i18n.changeLanguage(targetLanguage)
             }}
           />
         </div>
