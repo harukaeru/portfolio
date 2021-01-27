@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Navigation } from 'react-minimal-side-navigation'
 import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 import { NavSidebar } from './NavSidebar'
 import BodyWrapper from './BodyWrapper'

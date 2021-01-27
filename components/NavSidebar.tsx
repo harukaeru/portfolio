@@ -21,7 +21,6 @@ import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const router = useRouter()
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  console.log('isSidebarOpen', isSidebarOpen)
   const [t] = useTranslation()
 
   return (
@@ -30,11 +29,10 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       <div
         className="absolute z-50 inset-2 w-8 h-8 cursor-pointer"
         onClick={() => {
-          console.log('hey')
           setIsSidebarOpen((currentSidebarOpenFlag) => !currentSidebarOpenFlag)
         }}
       >
-        <FontAwesomeIcon icon={faBars} />
+        <FontAwesomeIcon icon={faBars} size="2x" className={'text-xl'} />
       </div>
 
       <div
@@ -56,7 +54,6 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <Navigation
           activeItemId={router.asPath}
           onSelect={({ itemId }) => {
-            console.log('selected')
             router.push(itemId)
           }}
           items={[
