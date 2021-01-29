@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
+// import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 import { NavSidebar } from './NavSidebar'
 import BodyWrapper from './BodyWrapper'
 
@@ -19,7 +19,7 @@ export default function Layout({ children, home }) {
           setIsSidebarOpen={setIsSidebarOpen}
         />
 
-        <div className="overflow-hidden w-full">
+        <div className="overflow-hidden w-full bg-white">
           <main className="content">
             <section className="sm:flex-row flex flex-col flex-1">
               <div

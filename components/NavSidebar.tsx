@@ -2,7 +2,6 @@
 import { Navigation } from 'react-minimal-side-navigation'
 import { useRouter } from 'next/router'
 import { useTranslation, i18n } from '../i18n'
-import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {
@@ -16,12 +15,14 @@ import {
 
 import React, { useState } from 'react'
 
-import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
+// import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 
 export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const router = useRouter()
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [t] = useTranslation()
+
+  console.log('router.asPath', router.asPath)
 
   return (
     <>
@@ -34,9 +35,8 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       >
         <FontAwesomeIcon icon={faBars} size="2x" className={'text-xl'} />
       </div>
-
       <div
-        className={`relative inset-y-0 left-0 z-30 bg-white ${
+        className={`relative inset-y-0 left-0 z-30 bg-gray-300 ${
           isSidebarOpen ? 'w-80 block' : 'w-0 hidden'
         }`}
       >
@@ -64,17 +64,17 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             },
             {
               title: t('About'),
-              itemId: '/posts/first-post',
+              itemId: '/about',
               elemBefore: () => <FontAwesomeIcon icon={faAddressCard} />,
             },
             {
               title: t('Gallery'),
-              itemId: '/posts/first-post2',
+              itemId: '/gallery',
               elemBefore: () => <FontAwesomeIcon icon={faChess} />,
             },
             {
               title: t('Links'),
-              itemId: '/posts/first-post3',
+              itemId: '/links',
               elemBefore: () => <FontAwesomeIcon icon={faLink} />,
             },
           ]}
