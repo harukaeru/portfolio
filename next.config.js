@@ -1,3 +1,5 @@
+const withPlugins = require('next-compose-plugins');
+const withImages = require('next-images')
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 })
@@ -16,9 +18,12 @@ const originalConfig = {
   // pageExtensions: ['ts', 'tsx', 'mdx']
 }
 
-module.exports = {
-  ...withMDX({
-    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
-  }),
-  ...originalConfig,
-}
+module.exports = withPlugins([
+  [
+    withMDX, {
+      pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
+    }
+  ],
+  withImages,
+  originalConfig,
+])

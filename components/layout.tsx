@@ -19,16 +19,9 @@ export default function Layout({ children, home }) {
           setIsSidebarOpen={setIsSidebarOpen}
         />
 
-        <div className="overflow-hidden w-full bg-white">
+        <div className="relative w-full bg-white p-8 overflow-y-auto">
           <main className="content">
-            <section className="sm:flex-row flex flex-col flex-1">
-              <div
-                className="relative content-box inset-8"
-                style={{ flexGrow: 2, flexBasis: '0%' }}
-              >
-                {children}
-              </div>
-            </section>
+            <div className="content-box">{children}</div>
           </main>
         </div>
       </div>
