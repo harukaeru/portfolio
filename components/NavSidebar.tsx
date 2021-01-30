@@ -36,7 +36,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <FontAwesomeIcon icon={faBars} size="2x" className={'text-xl'} />
       </div>
       <div
-        className={`relative inset-y-0 left-0 z-30 bg-gray-300 ${
+        className={`flex justify-start flex-col inset-y-0 left-0 z-30 bg-gray-300 ${
           isSidebarOpen ? 'w-80 block' : 'w-0 hidden'
         }`}
       >
@@ -52,7 +52,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         </div>
 
         <Navigation
-          activeItemId={router.asPath}
+          activeItemId={'[noactive-forever]'}
           onSelect={({ itemId }) => {
             router.push(itemId)
           }}
@@ -80,7 +80,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           ]}
         />
 
-        <div className="absolute bottom-0 w-full my-8">
+        <div className="relative bottom-0 w-full mb-8 mt-auto">
           <Navigation
             activeItemId={router.asPath}
             items={[
