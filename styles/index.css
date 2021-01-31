@@ -1,8 +1,4 @@
 @tailwind base;
 @tailwind components;
 
-.side-navigation-panel {
-  height: 100%;
-}
-
 @tailwind utilities;
