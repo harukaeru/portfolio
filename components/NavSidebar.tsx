@@ -26,59 +26,33 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
   return (
     <>
-      {/* Sidebar */}
       <div
-        className="absolute z-50 inset-2 w-8 h-8 cursor-pointer"
-        onClick={() => {
-          setIsSidebarOpen((currentSidebarOpenFlag) => !currentSidebarOpenFlag)
-        }}
-      >
-        <FontAwesomeIcon icon={faBars} size="2x" className={'text-xl'} />
-      </div>
-      <div
-        className={`flex justify-start flex-col inset-y-0 left-0 z-30 bg-gray-300 ${
-          isSidebarOpen ? 'w-80 block' : 'w-0 hidden'
+        className={`flex justify-start flex-col inset-y-0 left-0 z-30 bg-white ${
+          isSidebarOpen ? 'w-30 block border-right-black' : 'w-0 hidden'
         }`}
       >
-        <div className="flex items-center justify-center mt-10 text-center py-3 select-none">
-          <img
-            className="block mx-auto h-24 rounded-full sm:mx-0 sm:flex-shrink-0"
-            src="/images/kaeru.png"
-            alt="Kaeru Face"
+        <div className="relative w-full mt-10">
+          <Navigation
+            activeItemId={'[noactive-forever]'}
+            onSelect={({ itemId }) => {
+              router.push(itemId)
+            }}
+            items={[
+              {
+                title: t('Home'),
+                itemId: '/',
+              },
+              {
+                title: t('About'),
+                itemId: '/about',
+              },
+              {
+                title: t('Works'),
+                itemId: '/gallery',
+              },
+            ]}
           />
         </div>
-        <div className="flex items-center justify-center text-center pb-6 select-none">
-          <div>Kaeru Portfolio</div>
-        </div>
-
-        <Navigation
-          activeItemId={'[noactive-forever]'}
-          onSelect={({ itemId }) => {
-            router.push(itemId)
-          }}
-          items={[
-            {
-              title: t('Home'),
-              itemId: '/',
-              elemBefore: () => <FontAwesomeIcon icon={faHome} />,
-            },
-            {
-              title: t('About'),
-              itemId: '/about',
-              elemBefore: () => <FontAwesomeIcon icon={faAddressCard} />,
-            },
-            {
-              title: t('Gallery'),
-              itemId: '/gallery',
-              elemBefore: () => <FontAwesomeIcon icon={faChess} />,
-            },
-            {
-              title: t('Links'),
-              itemId: '/links',
-              elemBefore: () => <FontAwesomeIcon icon={faLink} />,
-            },
-          ]}
-        />
 
         <div className="relative bottom-0 w-full mb-8 mt-auto">
           <Navigation
@@ -87,7 +61,6 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               {
                 title: t('Change Language'),
                 itemId: '/language',
-                elemBefore: () => <FontAwesomeIcon icon={faGlobe} />,
               },
             ]}
             onSelect={({ itemId }) => {

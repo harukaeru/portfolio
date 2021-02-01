@@ -1,4 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+@media (max-width: 330px) {
+  .disappear-when-xs {
+    display: none;
+  }
+}
+
 @tailwind utilities;
