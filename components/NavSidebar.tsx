@@ -31,7 +31,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           isSidebarOpen ? 'w-30 block border-right-black' : 'w-0 hidden'
         }`}
       >
-        <div className="relative w-full mt-10">
+        <div className="relative w-full mt-16">
           <Navigation
             activeItemId={'[noactive-forever]'}
             onSelect={({ itemId }) => {
