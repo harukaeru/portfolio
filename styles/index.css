@@ -7,4 +7,21 @@
   }
 }
 
+.row {
+  height: 2em;
+}
+
+.cell {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+}
+
+.alive {
+  background-color: black;
+}
+.dead {
+  background-color: white;
+}
+
 @tailwind utilities;
