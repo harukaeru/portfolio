@@ -20,7 +20,7 @@ export default function Layout({ children, home }) {
         />
 
         <div className="relative w-full bg-white p-8 overflow-y-auto">
-          <main className="content">
+          <main className="content h-full">
             <div className="content-box">{children}</div>
           </main>
         </div>
