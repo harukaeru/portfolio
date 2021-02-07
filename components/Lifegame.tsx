@@ -15,7 +15,7 @@ import {
 const Lifegame = () => {
   const clientSize =
     typeof document === 'undefined'
-      ? { width: 1000, height: 1000 }
+      ? { width: 800, height: 800 }
       : {
           width: document.querySelector('.content').clientWidth,
           height: document.querySelector('.content').clientHeight,

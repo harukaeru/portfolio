@@ -35,9 +35,9 @@ export default function Layout({ children, home }) {
             setIsSidebarOpen={setIsSidebarOpen}
           />
 
-          <div className="relative w-full h-auto bg-white p-8 overflow-y-auto">
-            <main className="content" style={{ height: '88vh' }}>
-              <div className="content-box">{children}</div>
+          <div className="relative w-full h-full bg-white p-4 pt-8 overflow-y-auto">
+            <main className="content h-full">
+              <div className="content-box h-full">{children}</div>
             </main>
           </div>
         </div>
