@@ -1,10 +1,7 @@
 import React from 'react'
 import Lifegame from '../components/Lifegame'
 
-const About = () => {
-  return (
-    <>
-      <Lifegame />
+/*
       <i className="fa-2x fab fa-twitter"></i>
       <i className="fa-2x fab fa-github-alt"></i>
       <i className="fa-2x fab fa-medium-m"></i>
@@ -20,6 +17,12 @@ const About = () => {
       <i className="fa-2x fab fa-docker"></i>
       <i className="fa-2x fab fa-internet-explorer"></i>
       <i className="fa-2x fab fa-java"></i>
+      */
+
+const About = () => {
+  return (
+    <>
+      <Lifegame />
     </>
   )
 }

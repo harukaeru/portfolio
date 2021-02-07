@@ -23,13 +23,10 @@ const Lifegame = () => {
 
   const field = { width: 20, height: 40 }
   const cellSize = React.useMemo(() => {
-    console.log('w', clientSize.width / field.width)
-    console.log('h', clientSize.height / field.height)
     const c = Math.min(
-      Math.ceil(clientSize.width / field.width),
-      Math.ceil(clientSize.height / field.height)
+      Math.floor(clientSize.width / field.width),
+      Math.floor(clientSize.height / field.height)
     )
-    console.log('c', c)
     return c
   }, [clientSize])
 
@@ -54,7 +51,7 @@ const Lifegame = () => {
         return nextGeneration
       })
     } else {
-      new Promise((resolve) => setTimeout(resolve, 150)).then(() => {
+      new Promise((resolve) => setTimeout(resolve, 350)).then(() => {
         if (shouldLoop && !isPaused) {
           setGeneration(calcNextGeneration(generation).nextGeneration)
         }
@@ -69,8 +66,6 @@ const Lifegame = () => {
   const handleHoverEnd = () => {
     setIsPaused(false)
   }
-
-  console.log('cellSize', cellSize)
 
   return (
     <div>
