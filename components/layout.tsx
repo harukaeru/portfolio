@@ -1,34 +1,49 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 // import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 import { NavSidebar } from './NavSidebar'
 import BodyWrapper from './BodyWrapper'
 import CookieConsent, { Cookies } from 'react-cookie-consent'
+import { useResizeDetector } from 'react-resize-detector'
+import { GlobalContext } from '../lib/context'
 
 const name = 'Kaeru'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
+  const { width, height, ref } = useResizeDetector<HTMLDivElement>()
+  // return <div ref={ref}>{`${width}x${height}`}</div>;
+  console.log('height', height)
+  const context = {
+    cookieComponentHeight: height,
+  }
+  const { setCookieComponentHeight } = useContext(GlobalContext)
 
+  React.useEffect(() => {
+    setCookieComponentHeight(height)
+  }, [height])
+
+  console.log('context', context)
   return (
     <BodyWrapper>
       <div className="flex flex-col h-screen">
-        <CookieConsent
-          location="top"
-          buttonText="Agree"
-          cookieName="myAwesomeCookieName2"
-          style={{ background: '#2B373B', position: 'relative' }}
-          buttonStyle={{
-            color: '#4e503b',
-            fontSize: '13px',
-            backgroundColor: 'rgb(153 217 234)',
-          }}
-        >
-          By using this site, you agree to my use of Cookies
-        </CookieConsent>
-
+        <div ref={ref} className="relative">
+          <CookieConsent
+            location="top"
+            buttonText="Agree"
+            cookieName="myAwesomeCookieName2"
+            style={{ background: '#2B373B', position: 'relative' }}
+            buttonStyle={{
+              color: '#4e503b',
+              fontSize: '13px',
+              backgroundColor: 'rgb(153 217 234)',
+            }}
+          >
+            By using this site, you agree to my use of Cookies
+          </CookieConsent>
+        </div>
         <div className="flex bg-gray-200 flex-grow">
           <NavSidebar
             isSidebarOpen={isSidebarOpen}

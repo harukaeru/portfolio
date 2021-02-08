@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../lib/context'
 import {
   calcNextGeneration,
   CellState,
@@ -13,22 +14,13 @@ import {
 } from '../lib/lifegame'
 
 const Lifegame = () => {
-  const clientSize =
-    typeof document === 'undefined'
-      ? { width: 800, height: 800 }
-      : {
-          width: document.querySelector('.content').clientWidth,
-          height: document.querySelector('.content').clientHeight,
-        }
-
   const field = { width: 20, height: 40 }
+  const { cookieComponentHeight } = useContext(GlobalContext)
   const cellSize = React.useMemo(() => {
-    const c = Math.min(
-      Math.floor(clientSize.width / field.width),
-      Math.floor(clientSize.height / field.height)
-    )
-    return c
-  }, [clientSize])
+    return `calc((100vh - 3rem - ${cookieComponentHeight}px) / 40)`
+  }, [cookieComponentHeight])
+
+  console.log('cellSize', cellSize)
 
   const [generation, setGeneration] = React.useState(null)
 
@@ -68,7 +60,7 @@ const Lifegame = () => {
   }
 
   return (
-    <div>
+    <>
       {generation &&
         generation.map((row, i, array) => {
           const rowClassName = i === array.length - 1 ? 'row last-row' : 'row'
@@ -76,7 +68,7 @@ const Lifegame = () => {
             <div
               key={i}
               className={rowClassName}
-              style={{ height: `${cellSize}px` }}
+              style={{ height: cellSize, lineHeight: '100%' }}
             >
               {row.map((cell, j, cellArray) => {
                 const cellClassName =
@@ -88,22 +80,29 @@ const Lifegame = () => {
                   <div
                     key={`${i}/${j}`}
                     className={cellClassName}
+                    style={{
+                      width: cellSize,
+                      height: cellSize,
+                    }}
                     onMouseEnter={handleHover}
                     onMouseLeave={handleHoverEnd}
                   >
                     <i
                       className="fab fa-twitter"
                       style={{
-                        width: `${cellSize}px`,
-                        height: `${cellSize}px`,
-                        fontSize: `${cellSize}px`,
+                        width: cellSize,
+                        height: cellSize,
+                        fontSize: cellSize,
                       }}
                     ></i>
                   </div>
                 ) : (
                   <div
                     key={`${i}/${j}`}
-                    style={{ width: `${cellSize}px`, height: `${cellSize}px` }}
+                    style={{
+                      width: cellSize,
+                      height: cellSize,
+                    }}
                     className={cellClassName + ' ' + stateClassName}
                   ></div>
                 )
@@ -111,7 +110,7 @@ const Lifegame = () => {
             </div>
           )
         })}
-    </div>
+    </>
   )
 }
 

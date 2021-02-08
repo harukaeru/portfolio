@@ -24,6 +24,7 @@
     "react-cookie-consent": "^6.2.2",
     "react-dom": "16.13.1",
     "react-minimal-side-navigation": "^1.5.1",
+    "react-resize-detector": "^6.5.0",
     "tailwind": "^4.0.0",
     "tailwindcss": "^2.0.2"
   },
