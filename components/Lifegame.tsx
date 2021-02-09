@@ -17,7 +17,7 @@ const Lifegame = () => {
   const field = { width: 20, height: 40 }
   const { cookieComponentHeight } = useContext(GlobalContext)
   const cellSize = React.useMemo(() => {
-    return `calc((100vh - 3rem - ${cookieComponentHeight}px) / 40)`
+    return `min(calc((100vh - 3rem - ${cookieComponentHeight}px) / 40), calc((100vw - 11rem) / 20))`
   }, [cookieComponentHeight])
 
   console.log('cellSize', cellSize)

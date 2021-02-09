@@ -28,7 +28,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     <>
       <div
         className={`flex justify-start flex-col inset-y-0 left-0 z-30 bg-white ${
-          isSidebarOpen ? 'w-30 block border-right-black' : 'w-0 hidden'
+          isSidebarOpen ? 'w-44 block border-right-black' : 'w-0 hidden'
         }`}
       >
         <div className="relative w-full mt-16">
@@ -45,10 +45,6 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               {
                 title: t('About'),
                 itemId: '/about',
-              },
-              {
-                title: t('Works'),
-                itemId: '/gallery',
               },
             ]}
           />
