@@ -14,13 +14,59 @@ import {
 } from '../lib/lifegame'
 
 const Lifegame = () => {
-  const field = { width: 20, height: 40 }
-  const { cookieComponentHeight } = useContext(GlobalContext)
+  const field = { width: 23, height: 40 }
+  const { cookieComponentHeight, window } = useContext(GlobalContext)
+
   const cellSize = React.useMemo(() => {
-    return `min(calc((100vh - 3rem - ${cookieComponentHeight}px) / 40), calc((100vw - 11rem) / 20))`
+    return `min(calc((100vh - 3rem - ${cookieComponentHeight}px) / 40), calc((100vw - 11rem) / 23))`
   }, [cookieComponentHeight])
 
+  const actualCellSize = React.useMemo(() => {
+    if (typeof document === 'undefined') {
+      return 0
+    }
+    const heightDOM = document.createElement('div')
+    heightDOM.style.height = `calc((100vh - 3rem - ${cookieComponentHeight}px) / 40)`
+
+    const widthDOM = document.createElement('div')
+    widthDOM.style.width = 'calc((100vw - 11rem) / 23)'
+
+    // heightDOM.style.display = 'none'
+
+    // const widthDOM = document.createElement('div')
+    // widthDOM.style.width = 'calc((100vw - 11rem) / 23))'
+    // widthDOM.style.display = 'none'
+
+    if (document) {
+      document.body.appendChild(heightDOM)
+      document.body.appendChild(widthDOM)
+    }
+    const height =
+      window &&
+      Number(
+        window
+          .getComputedStyle(heightDOM)
+          .getPropertyValue('height')
+          .replace(/px/, '')
+      )
+    const width =
+      window &&
+      Number(
+        window
+          .getComputedStyle(widthDOM)
+          .getPropertyValue('width')
+          .replace(/px/, '')
+      )
+
+    const fullWidth = width * 23
+    const fullHeight = height * 40
+    console.log('height', height)
+    console.log('width', width)
+    return { height, width }
+  }, [cellSize, window, cookieComponentHeight])
+
   console.log('cellSize', cellSize)
+  console.log('actualCellSize', actualCellSize)
 
   const [generation, setGeneration] = React.useState(null)
 
@@ -43,7 +89,7 @@ const Lifegame = () => {
         return nextGeneration
       })
     } else {
-      new Promise((resolve) => setTimeout(resolve, 350)).then(() => {
+      new Promise((resolve) => setTimeout(resolve, 150)).then(() => {
         if (shouldLoop && !isPaused) {
           setGeneration(calcNextGeneration(generation).nextGeneration)
         }

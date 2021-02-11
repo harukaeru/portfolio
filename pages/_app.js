@@ -4,12 +4,19 @@ import { appWithTranslation } from '../i18n'
 import App from 'next/app'
 import Layout from '../components/Layout'
 import { GlobalContext } from '../lib/context'
+import { useWindow } from '../lib/useWindow'
 
 function MyApp({ Component, pageProps }) {
   const [cookieComponentHeight, setCookieComponentHeight] = React.useState(0)
+  const { window } = useWindow()
+
   return (
     <GlobalContext.Provider
-      value={{ cookieComponentHeight, setCookieComponentHeight }}
+      value={{
+        cookieComponentHeight,
+        setCookieComponentHeight,
+        window,
+      }}
     >
       <Layout>
         <Component {...pageProps} />

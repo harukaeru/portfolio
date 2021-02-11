@@ -34,10 +34,18 @@ export default function Layout({ children, home }) {
             location="top"
             buttonText="Agree"
             cookieName="myAwesomeCookieName2"
-            style={{ background: '#2B373B', position: 'relative' }}
+            style={{
+              background: '#2B373B',
+              position: 'relative',
+              fontSize: '11px',
+            }}
+            contentStyle={{
+              flex: '1 0 100px',
+            }}
             buttonStyle={{
               color: '#4e503b',
-              fontSize: '13px',
+              marginLeft: '0px',
+              fontSize: '11px',
               backgroundColor: 'rgb(153 217 234)',
             }}
           >
