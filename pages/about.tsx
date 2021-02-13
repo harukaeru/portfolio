@@ -21,9 +21,27 @@ import Lifegame from '../components/Lifegame'
 
 const About = () => {
   return (
-    <>
-      <Lifegame />
-    </>
+    <div>
+      <section className="mb-4">
+        <div className="text-4xl mt-10 sm:mt-20">Skillset</div>
+        <div className="ml-4 mt-2 grid grid-cols-1 sm:grid-cols-2">
+          <div className="mb-3">React / TypeScript</div>
+          <div className="mb-3">Python 3.x / Django</div>
+          <div className="mb-3">Ruby on Rails</div>
+          <div className="mb-3">AWS</div>
+          <div className="mb-3">etc... (Ask me!)</div>
+        </div>
+      </section>
+      <section>
+        <div className="text-4xl mt-0 sm:mt-20">Links</div>
+        <div className="ml-4 mt-2 grid grid-cols-1 sm:grid-cols-2">
+          <div className="mb-3">Twitter</div>
+          <div className="mb-3">GitHub</div>
+          <div className="mb-3">Medium</div>
+          <div className="mb-3">StackOverflow</div>
+        </div>
+      </section>
+    </div>
   )
 }
 

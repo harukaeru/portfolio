@@ -2,36 +2,18 @@
 import { Navigation } from 'react-minimal-side-navigation'
 import { useRouter } from 'next/router'
 import { useTranslation, i18n } from '../i18n'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 
-import {
-  faBars,
-  faHome,
-  faAddressCard,
-  faChess,
-  faGlobe,
-  faLink,
-} from '@fortawesome/free-solid-svg-icons'
-
-import React, { useState } from 'react'
-
-// import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
-
-export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+export const NavSidebar = () => {
   const router = useRouter()
-  // const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [t] = useTranslation()
 
   console.log('router.asPath', router.asPath)
 
   return (
     <>
-      <div
-        className={`flex justify-start flex-col inset-y-0 left-0 z-30 bg-white ${
-          isSidebarOpen ? 'w-44 block border-right-black' : 'w-0 hidden'
-        }`}
-      >
-        <div className="relative w-full mt-16">
+      <div className="bg-white flex justify-between flex-col">
+        <div className="w-32 mt-12 sm:mt-28">
           <Navigation
             activeItemId={'[noactive-forever]'}
             onSelect={({ itemId }) => {
@@ -50,7 +32,7 @@ export const NavSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
         </div>
 
-        <div className="relative bottom-0 w-full mb-8 mt-auto">
+        <div className="w-32 mb-8">
           <Navigation
             activeItemId={router.asPath}
             items={[

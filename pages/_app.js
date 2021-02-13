@@ -8,14 +8,12 @@ import { useWindow } from '../lib/useWindow'
 
 function MyApp({ Component, pageProps }) {
   const [cookieComponentHeight, setCookieComponentHeight] = React.useState(0)
-  const { window } = useWindow()
 
   return (
     <GlobalContext.Provider
       value={{
         cookieComponentHeight,
         setCookieComponentHeight,
-        window,
       }}
     >
       <Layout>
