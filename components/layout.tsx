@@ -8,6 +8,7 @@ import CookieConsent, { Cookies } from 'react-cookie-consent'
 import { useResizeDetector } from 'react-resize-detector'
 import { GlobalContext } from '../lib/context'
 import { useWindow } from '../lib/useWindow'
+import { useTranslation } from '../i18n'
 
 const name = 'Kaeru'
 export const siteTitle = 'Next.js Sample Website'
@@ -16,6 +17,7 @@ export default function Layout({ children, home }) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
   const { width, height, ref } = useResizeDetector<HTMLDivElement>()
   const { window } = useWindow()
+  const [t] = useTranslation()
 
   // return <div ref={ref}>{`${width}x${height}`}</div>;
   console.log('height', height)
@@ -38,7 +40,7 @@ export default function Layout({ children, home }) {
       <div ref={ref}>
         <CookieConsent
           location="top"
-          buttonText="Agree"
+          buttonText={t('Agree')}
           cookieName="myAwesomeCookieName2"
           style={{
             background: '#2B373B',
@@ -55,14 +57,14 @@ export default function Layout({ children, home }) {
             backgroundColor: 'rgb(153 217 234)',
           }}
         >
-          By using this site, you agree to my use of Cookies
+          {t('By using this site, you agree to my use of Cookies')}
         </CookieConsent>
       </div>
       <div className="flex bg-gray-200 flex-grow">
         <NavSidebar />
 
         <div className="relative w-full bg-white">
-          <main className="content h-full p-4 pt-8 overflow-y-auto">
+          <main className="content h-full p-4 pt-8 overflow-y-hidden">
             <div className="content-box h-full">{children}</div>
           </main>
         </div>

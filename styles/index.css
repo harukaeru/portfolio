@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+img {
+  touch-action: manipulation;
+}
+
 @media (max-width: 330px) {
   .disappear-when-xs {
     display: none;
@@ -18,10 +22,9 @@
   background-color: white;
 }
 
+@tailwind utilities;
+
 /* TEMP */
 .mx-4 {
-  margin-left: 0.2rem;
   margin-right: 0.2rem;
 }
-
-@tailwind utilities;

@@ -1,4 +1,12 @@
 {
   "Home": "Home",
-  "Change Language": "日本語"
+  "Change Language": "日本語",
+  "About": "About",
+  "Links": "Links",
+  "Hello, I am Kaeru": "Hello, I am Kaeru",
+  "Konnichiwa!": "Konnichiwa!",
+  "My name is Kaeru": "My name is Kaeru.",
+  "I am a programmer living in Japan": "I am a programmer living in Japan.",
+  "You can reach me from the bottom-right button": "You can reach me from the bottom-right button.",
+  "etc": "etc... (Ask me!)"
 }
