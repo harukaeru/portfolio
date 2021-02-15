@@ -1,13 +1,13 @@
 import React from 'react'
 import { useTranslation } from '../i18n'
 
-export default function Index() {
+export default function Index(): React.ReactNode {
   const [t] = useTranslation()
   const [clickCount, setClickCount] = React.useState(0)
 
   return (
     <div>
-      <div className="text-4xl mt-10 sm:mt-36">{t('Hello, I am Kaeru')}</div>
+      <div className="text-4xl mt-4 sm:mt-36">{t('This is Kaeru')}</div>
       <section className="ml-3 mt-1 flex flex-col">
         <div>
           <p className="mt-1">{t('Konnichiwa!')}</p>

@@ -1,25 +1,20 @@
 import React, { useContext } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-// import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css'
 import { NavSidebar } from './NavSidebar'
-import BodyWrapper from './BodyWrapper'
 import CookieConsent, { Cookies } from 'react-cookie-consent'
 import { useResizeDetector } from 'react-resize-detector'
 import { GlobalContext } from '../lib/context'
 import { useWindow } from '../lib/useWindow'
 import { useTranslation } from '../i18n'
 
-const name = 'Kaeru'
-export const siteTitle = 'Next.js Sample Website'
+interface LayoutProps {
+  children: React.ReactNode
+}
 
-export default function Layout({ children, home }) {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
-  const { width, height, ref } = useResizeDetector<HTMLDivElement>()
+export default function Layout({ children }: LayoutProps): React.ReactNode {
+  const { height, ref } = useResizeDetector<HTMLDivElement>()
   const { window } = useWindow()
   const [t] = useTranslation()
 
-  // return <div ref={ref}>{`${width}x${height}`}</div>;
   console.log('height', height)
   const context = {
     cookieComponentHeight: height,

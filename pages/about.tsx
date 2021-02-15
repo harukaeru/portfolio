@@ -1,28 +1,9 @@
-import Link from 'next/link'
 import React from 'react'
-import Lifegame from '../components/Lifegame'
 import { useTranslation } from '../i18n'
 
-/*
-      <i className="fa-2x fab fa-twitter"></i>
-      <i className="fa-2x fab fa-github-alt"></i>
-      <i className="fa-2x fab fa-medium-m"></i>
-      <i className="fa-2x fab fa-linkedin"></i>
-      <i className="fa-2x fab fa-tiktok"></i>
-      <i className="fa-2x fab fa-stack-overflow"></i>
-      <i className="fa-2x fab fa-python"></i>
-      <i className="fa-2x fab fa-angular"></i>
-      <i className="fa-2x fab fa-react"></i>
-      <i className="fa-2x fab fa-aws"></i>
-      <i className="fa-2x fab fa-jira"></i>
-      <i className="fa-2x fab fa-centos"></i>
-      <i className="fa-2x fab fa-docker"></i>
-      <i className="fa-2x fab fa-internet-explorer"></i>
-      <i className="fa-2x fab fa-java"></i>
-      */
-
-const About = () => {
+export default function About(): React.ReactNode {
   const [t] = useTranslation()
+
   return (
     <div>
       <section className="mb-4">
@@ -36,7 +17,7 @@ const About = () => {
         </div>
       </section>
       <section>
-        <div className="text-4xl mt-0 sm:mt-20">{t('Links')}</div>
+        <div className="text-4xl mt-0 sm:mt-16">{t('Links')}</div>
         <div className="ml-4 mt-2 grid grid-cols-1 sm:grid-cols-2">
           <div className="mb-3">
             Twitter (
@@ -46,7 +27,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="text-blue-500 underline"
             >
-              {t('English')}
+              {t('En')}
             </a>
             {' / '}
             <a
@@ -55,7 +36,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="text-blue-500 underline"
             >
-              {t('Japanese')}
+              {t('Ja')}
             </a>
             )
           </div>
@@ -96,5 +77,3 @@ const About = () => {
     </div>
   )
 }
-
-export default About
