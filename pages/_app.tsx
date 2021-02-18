@@ -2,11 +2,11 @@ import '../styles/index.css'
 import React from 'react'
 import { appWithTranslation } from '../i18n'
 import App from 'next/app'
-import Layout from '../components/Layout'
+import Layout from '../components/layout2'
 import { GlobalContext } from '../lib/context'
-import { useWindow } from '../lib/useWindow'
+import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [cookieComponentHeight, setCookieComponentHeight] = React.useState(0)
 
   return (
@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
       value={{
         cookieComponentHeight,
         setCookieComponentHeight,
+        window: null,
       }}
     >
       <Layout>

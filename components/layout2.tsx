@@ -7,10 +7,10 @@ import { useWindow } from '../lib/useWindow'
 import { useTranslation } from '../i18n'
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: JSX.Element
 }
 
-export default function Layout({ children }: LayoutProps): React.ReactNode {
+export default function Layout({ children }: LayoutProps): JSX.Element {
   const { height, ref } = useResizeDetector<HTMLDivElement>()
   const { window } = useWindow()
   const [t] = useTranslation()

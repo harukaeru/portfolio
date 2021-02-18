@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-export function useWindow() {
-  const [_window, setWindow] = useState(null)
+export function useWindow(): { window: Window } {
+  const [_window, setWindow] = useState<Window | null>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
