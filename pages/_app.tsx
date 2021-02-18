@@ -2,7 +2,7 @@ import '../styles/index.css'
 import React from 'react'
 import { appWithTranslation } from '../i18n'
 import App from 'next/app'
-import Layout from '../components/layout2'
+import Layout from '../components/Layout'
 import { GlobalContext } from '../lib/context'
 import type { AppProps } from 'next/app'
 
