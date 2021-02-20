@@ -1,14 +1,11 @@
-/* eslint-disable react/display-name, jsx-a11y/click-events-have-key-events */
 import { Navigation } from 'react-minimal-side-navigation'
 import { useRouter } from 'next/router'
 import { useTranslation, i18n } from '../i18n'
 import React from 'react'
 
-export const NavSidebar = () => {
+export const NavSidebar = (): JSX.Element => {
   const router = useRouter()
   const [t] = useTranslation()
-
-  console.log('router.asPath', router.asPath)
 
   return (
     <>
@@ -41,10 +38,8 @@ export const NavSidebar = () => {
                 itemId: '/language',
               },
             ]}
-            onSelect={({ itemId }) => {
-              console.log('i18n.language', i18n.language)
+            onSelect={() => {
               const targetLanguage = i18n.language === 'en' ? 'ja' : 'en'
-              console.log('targetLanguage', targetLanguage)
               i18n.changeLanguage(targetLanguage)
             }}
           />
