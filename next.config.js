@@ -14,6 +14,7 @@ const originalConfig = {
 module.exports = withPlugins([
   [
     {
+      target: 'serverless',
       pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
     },
   ],
