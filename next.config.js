@@ -14,7 +14,6 @@ const originalConfig = {
 module.exports = withPlugins([
   [
     {
-      distDir: 'out',
       pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
     },
   ],
