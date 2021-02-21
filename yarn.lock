@@ -5768,10 +5768,10 @@ react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-minimal-side-navigation@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/react-minimal-side-navigation/-/react-minimal-side-navigation-1.5.1.tgz#3297c28dd4aad97aa8bed4f48722041d874362a7"
-  integrity sha512-SJuvzXhkSRtIcHspCCan9oJOLGM7Kdcu6pGERR4i6Ufp8YWH/fLs3jCjdIohrDZWvKvE0HNC5giUmZBFOCeJTQ==
+react-minimal-side-navigation@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-minimal-side-navigation/-/react-minimal-side-navigation-1.6.1.tgz#6bc2bf52924977fe5de6d296057867ce84e8dc3d"
+  integrity sha512-gflWmgl37IyaUQUH2wcAq6XxubVQPS5TGhJT3DYPn4cZRnQp2brvp7yCNJisQchHrSjFKG79McELU/8QrqEFWA==
   dependencies:
     "@babel/runtime" "^7.12.1"
     tailwindcss ">=1.9.6"

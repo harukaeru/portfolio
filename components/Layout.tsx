@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { NavSidebar } from './NavSidebar'
-import CookieConsent, { Cookies } from 'react-cookie-consent'
+import CookieConsent from 'react-cookie-consent'
 import { useResizeDetector } from 'react-resize-detector'
 import { GlobalContext } from '../lib/context'
 import { useWindow } from '../lib/useWindow'
@@ -15,17 +15,11 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
   const { window } = useWindow()
   const [t] = useTranslation()
 
-  console.log('height', height)
-  const context = {
-    cookieComponentHeight: height,
-  }
   const { setCookieComponentHeight } = useContext(GlobalContext)
 
   React.useEffect(() => {
     setCookieComponentHeight(height)
   }, [height])
-
-  console.log('context', context)
 
   return (
     <div
@@ -35,7 +29,7 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
       <div ref={ref}>
         <CookieConsent
           location="top"
-          buttonText={t('Agree')}
+          buttonText={t('Got it')}
           cookieName="myAwesomeCookieName2"
           style={{
             background: '#2B373B',
@@ -52,7 +46,9 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
             backgroundColor: 'rgb(153 217 234)',
           }}
         >
-          {t('By using this site, you agree to my use of Cookies')}
+          {t(
+            'I use Category 2 Cookies to improve you experience on this website'
+          )}
         </CookieConsent>
       </div>
       <div className="flex bg-gray-200 flex-grow">
