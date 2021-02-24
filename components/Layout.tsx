@@ -47,7 +47,7 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           }}
         >
           {t(
-            'I use Category 2 Cookies to improve you experience on this website'
+            'I use Category 2 Cookies to improve your experience on this website'
           )}
         </CookieConsent>
       </div>
