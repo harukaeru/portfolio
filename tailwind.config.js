@@ -1,5 +1,10 @@
 module.exports = {
-  purge: [],
+  purge: {
+    content: [
+      "./**/*.{ts,tsx,jsx,css}",
+      "./node_modules/**/*"
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     rotate: {
