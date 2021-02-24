@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../lib/context'
 import { useTranslation } from '../i18n'
 
 export default function Index(): React.ReactNode {
   const [t] = useTranslation()
   const [clickCount, setClickCount] = React.useState(0)
+  const { isAdBlocked } = useContext(GlobalContext)
 
   return (
     <div>
@@ -15,6 +17,7 @@ export default function Index(): React.ReactNode {
           <p className="mt-1">{t('I am a programmer living in Japan')}</p>
           <p className="mt-1">
             {t('You can reach me from the bottom-right button')}
+            {isAdBlocked && t('after unlocking AdBlocker')}
           </p>
         </div>
         <div className="self-end disappear-when-xs mt-6 sm:mt-20 ml-auto mr-2 sm:mr-auto">
