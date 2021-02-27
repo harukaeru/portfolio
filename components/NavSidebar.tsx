@@ -10,7 +10,7 @@ export const NavSidebar = (): JSX.Element => {
   return (
     <>
       <div className="bg-white flex justify-between flex-col">
-        <div className="w-32 mt-12 sm:mt-28">
+        <div className="w-32 mt-12 sm:mt-28 select-none">
           <Navigation
             activeItemId={'[noactive-forever]'}
             onSelect={({ itemId }) => {
@@ -29,7 +29,7 @@ export const NavSidebar = (): JSX.Element => {
           />
         </div>
 
-        <div className="w-32 mb-8">
+        <div className="w-32 mb-8 select-none">
           <Navigation
             activeItemId={router.asPath}
             items={[

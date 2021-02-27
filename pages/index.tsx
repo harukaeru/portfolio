@@ -28,7 +28,7 @@ export default function Index(): React.ReactNode {
                 1 + 0.1 * clickCount
               }) rotate(${(clickCount % 4) * 90}deg)`,
             }}
-            src="/images/kaeru.png"
+            src="/images/kaeru.webp"
             alt="Kaeru Face"
             onClick={() => setClickCount(clickCount + 1)}
           />
